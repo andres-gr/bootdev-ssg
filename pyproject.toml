@@ -1,0 +1,16 @@
+#:tombi schema.strict = false
+
+[tool.pyright]
+reportUnannotatedClassAttribute = "none"
+reportUnknownMemberType = "none"
+reportUnusedCallResult = "none"
+
+[tool.ruff]
+indent-width = 2
+
+[tool.ruff.format]
+indent-style = "space"
+
+[tool.ruff.lint.flake8-quotes]
+# Enforces single quotes for strings when running `ruff check`
+docstring-quotes = "double"  # Keeps PEP 257 compliant double quotes for docstrings
