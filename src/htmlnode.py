@@ -17,7 +17,7 @@ class HTMLNode:
   def to_html(self) -> str:
     raise NotImplementedError
 
-  def propt_to_html(self) -> str:
+  def props_to_html(self) -> str:
     if self.props:
       return " ".join([f'{k}="{v}"' for k, v in self.props.items()])
 
@@ -26,5 +26,5 @@ class HTMLNode:
   @override
   def __repr__(self) -> str:
     return (
-      f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.propt_to_html()})"
+      f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props_to_html()})"
     )
