@@ -1,3 +1,4 @@
 #!/bin/env bash
 
-python3 -m unittest discover -s src
+.venv/bin/python -m unittest discover -s src/tests
+
