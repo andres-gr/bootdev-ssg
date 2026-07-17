@@ -1,23 +1,19 @@
 #:tombi schema.strict = false
 
-[build-system]
-requires = ["setuptools>=64"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "ssg"
 version = "0.1.0"
 description = "Static site generator"
 requires-python = ">=3.13"
 
-[tool.setuptools.package-dir]
-"" = "src"
-
-[tool.setuptools.packages.find]
-where = ["src"]
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
 
 [tool.pyright]
 extraPaths = ["src"]
+venvPath = "."
+venv = ".venv"
 reportUnannotatedClassAttribute = "none"
 reportUnknownMemberType = "none"
 reportUnusedCallResult = "none"
@@ -31,3 +27,9 @@ indent-style = "space"
 [tool.ruff.lint.flake8-quotes]
 # Enforces single quotes for strings when running `ruff check`
 docstring-quotes = "double"  # Keeps PEP 257 compliant double quotes for docstrings
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
