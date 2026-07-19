@@ -9,6 +9,7 @@ def generate_page_from_content(
   from_path: str,
   template_path: str,
   target_path: str,
+  base_path: str = "/",
 ) -> None:
   print("-" * 20)
   print(f"Generating page from {from_path} to {target_path} using {template_path}...")
@@ -27,12 +28,23 @@ def generate_page_from_content(
 
   title = extract_title_from_md(content)
   html_str = md_to_html_node(content).to_html()
-  html_content = template.replace(
-    "{{ Title }}",
-    title,
-  ).replace(
-    "{{ Content }}",
-    html_str,
+  html_content = (
+    template.replace(
+      "{{ Title }}",
+      title,
+    )
+    .replace(
+      "{{ Content }}",
+      html_str,
+    )
+    .replace(
+      'href="/',
+      f'href="{base_path}',
+    )
+    .replace(
+      'src="/',
+      f'src="{base_path}',
+    )
   )
 
   if not os.path.exists(os.path.dirname(dist_path)):

@@ -3,7 +3,7 @@ import shutil
 
 from root_dir import ROOT_DIR
 
-PUBLIC_DIR = "public"
+PUBLIC_DIR = "docs"
 STATIC_DIR = "static"
 
 
