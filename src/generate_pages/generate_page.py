@@ -16,7 +16,7 @@ def generate_page_from_content(
 
   content_path = os.path.join(ROOT_DIR, from_path)
   html_temp_path = os.path.join(ROOT_DIR, template_path)
-  dist_path = os.path.join(ROOT_DIR, target_path)
+  dist_path = os.path.join(ROOT_DIR, target_path).replace(".md", ".html")
   content = template = ""
 
   with open(content_path) as md_file:
@@ -34,6 +34,9 @@ def generate_page_from_content(
     "{{ Content }}",
     html_str,
   )
+
+  if not os.path.exists(os.path.dirname(dist_path)):
+    os.makedirs(os.path.dirname(dist_path), exist_ok=True)
 
   with open(dist_path, "w") as html_file:
     html_file.write(html_content)
